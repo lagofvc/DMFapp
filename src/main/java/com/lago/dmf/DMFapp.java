@@ -1,5 +1,7 @@
 package com.lago.dmf;
 
+import com.lago.dmf.domain.User;
+
 /**
  * Created by lago on 4/4/15.
  */

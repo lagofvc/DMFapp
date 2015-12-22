@@ -1,6 +1,9 @@
-package com.lago.dmf;
+package com.lago.dmf.domain;
+
+import com.lago.dmf.exceptions.FacebookLoginException;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by lago on 4/4/15.
@@ -11,11 +14,18 @@ public class User {
     private String gender;
     private String city;
     private String orientation;
-
-    private List<?> fbFriends;
-
-    private Object fbToken;
+    private List<?> fbFriendsOnDMF;
     private String currentCity;
+    private Object fbToken;
+
+    private User(){
+    }
+
+    public User(String username, String fbToken) throws FacebookLoginException {
+        if(fbToken==null || fbToken.isEmpty()){
+            throw new FacebookLoginException(FacebookLoginException.TOKEN_IS_NULL);
+        }
+    }
 
     public String getUsername() {
         return username;
@@ -24,6 +34,7 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
+
     public String getOrientation() {
         return orientation;
     }
@@ -56,12 +67,12 @@ public class User {
         this.currentCity = currentCity;
     }
 
-    public List<?> getFbFriends() {
-        return fbFriends;
+    public List<?> getFbFriendsOnDMF() {
+        return fbFriendsOnDMF;
     }
 
-    public void setFbFriends(List<?> fbFriends) {
-        this.fbFriends = fbFriends;
+    public void setFbFriendsOnDMF(List<?> fbFriendsOnDMF) {
+        this.fbFriendsOnDMF = fbFriendsOnDMF;
     }
 
     public Object getFbToken() {
@@ -83,14 +94,14 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                ", city='" + city + '\'' +
-                ", orientation='" + orientation + '\'' +
-                ", fbFriends=" + fbFriends +
-                ", fbToken=" + fbToken +
-                ", currentCity='" + currentCity + '\'' +
-                '}';
+            "username='" + username + '\'' +
+            ", age=" + age +
+            ", gender='" + gender + '\'' +
+            ", city='" + city + '\'' +
+            ", orientation='" + orientation + '\'' +
+            ", fbFriendsOnDMF=" + fbFriendsOnDMF +
+            ", fbToken=" + fbToken +
+            ", currentCity='" + currentCity + '\'' +
+            '}';
     }
 }

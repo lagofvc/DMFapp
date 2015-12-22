@@ -8,17 +8,11 @@ import static org.junit.Assert.*;
 public class DMFappShould {
 
     private DMFapp classUnderTest;
-
-    @Before
-    public void setup(){
-        classUnderTest = new DMFapp();
-    }
-
-    @Test
-    public void allowCreateUserTest(){
-        User u = new User();
-        assertNotNull(u);
-    }
+//
+//    @Before
+//    public void setup(){
+//        classUnderTest = new DMFapp();
+//    }
 
 //    @Test
 //    public void allowUserToLoginViaFBTest(){
